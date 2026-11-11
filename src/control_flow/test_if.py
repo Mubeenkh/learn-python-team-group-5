@@ -56,3 +56,28 @@ def test_if_multiple_elif_branches():
     assert describe_temperature(15) == 'Mild'
     assert describe_temperature(25) == 'Warm'
     assert describe_temperature(35) == 'Hot'
+
+
+def test_if_nested_conditions():
+    """Nested IF statements
+
+    An IF statement can sit inside another one. The inner condition is only checked when
+    the outer condition is true.
+    """
+
+    def check_entry(age, has_ticket):
+        if has_ticket:
+            if age >= 18:
+                result = 'Enter'
+            else:
+                result = 'Enter with an adult'
+        else:
+            result = 'Buy a ticket first'
+
+        return result
+
+    assert check_entry(25, True) == 'Enter'
+    assert check_entry(12, True) == 'Enter with an adult'
+    # Without a ticket the age is never checked, so both ages give the same result.
+    assert check_entry(25, False) == 'Buy a ticket first'
+    assert check_entry(12, False) == 'Buy a ticket first'
