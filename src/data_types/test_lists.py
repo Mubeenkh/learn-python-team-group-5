@@ -336,3 +336,27 @@ def test_nested_list_comprehensions():
         (3, 7, 11),
         (4, 8, 12),
     ]
+
+def test_sorting_list():
+    """ Sorting Lists with sorted().
+
+    sorted() returns the sorted list while keeping the original list the same.
+    It includes two optional parameters: 
+        - reverse=True which return the descending order
+        - key=myCriteria which sorts the list based on the given criteria
+    """
+    unsorted = [9, 3, 5, 7, 2, 1]
+
+    # sorted() return the sorted list, while the original list remains the same
+    assert sorted(unsorted) == [1, 2, 3, 5, 7, 9]
+    assert unsorted == [9, 3, 5, 7, 2, 1]
+
+    # sorted(reverse=True) return the sorted list in desc order, while the original list remains the same
+    assert sorted(unsorted, reverse=True) == [9, 7, 5, 3, 2, 1]
+    assert unsorted == [9, 3, 5, 7, 2, 1]
+
+    # key specifies the sorting criteria
+    sentence = ['I', 'am', 'Making', 'a', 'Sentence']
+
+    # key=len will order the list by string length
+    assert sorted(sentence, key=len) == ['I', 'a', 'am', 'Making', 'Sentence']
