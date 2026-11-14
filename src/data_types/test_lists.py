@@ -336,3 +336,52 @@ def test_nested_list_comprehensions():
         (3, 7, 11),
         (4, 8, 12),
     ]
+
+def test_sorting_list():
+    """ Sorting Lists with sorted().
+
+    sorted() returns the sorted list while keeping the original list the same.
+    It includes two optional parameters: 
+        - reverse=True which return the descending order
+        - key=myCriteria which sorts the list based on the given criteria
+    """
+    unsorted = [9, 3, 5, 7, 2, 1]
+
+    # sorted() return the sorted list, while the original list remains the same
+    assert sorted(unsorted) == [1, 2, 3, 5, 7, 9]
+    assert unsorted == [9, 3, 5, 7, 2, 1]
+
+    # sorted(reverse=True) return the sorted list in desc order, while the original list remains the same
+    assert sorted(unsorted, reverse=True) == [9, 7, 5, 3, 2, 1]
+    assert unsorted == [9, 3, 5, 7, 2, 1]
+
+    # key specifies the sorting criteria
+    sentence = ['I', 'am', 'Making', 'a', 'Sentence']
+
+    # key=len will order the list by string length
+    assert sorted(sentence, key=len) == ['I', 'a', 'am', 'Making', 'Sentence']
+
+def test_slicing_list():
+    """ Slicing lists using [start:stop:step]
+
+    The full syntax for slicing a list is myList[start:stop:step]. 
+        - "start" index is included, 
+        - "stop" index is not included,
+        - "step" determines how many values you skip or jump over (by default step=1)
+    """
+
+    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    assert numbers[0:6] == [0, 1, 2, 3, 4, 5]
+    assert numbers[0:6:2] == [0, 2, 4]
+
+    assert numbers[-3] == 7
+    assert numbers[-3:] == [7, 8, 9]
+
+    assert numbers[::2] == [0, 2, 4, 6, 8]
+    assert numbers[1::2] == [1, 3, 5, 7, 9]
+
+    assert numbers[::-1] == [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+    assert numbers[::-3] == [9, 6, 3, 0]
+
+    assert numbers[2:8:3] == [2, 5]
