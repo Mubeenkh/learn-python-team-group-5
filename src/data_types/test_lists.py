@@ -360,3 +360,28 @@ def test_sorting_list():
 
     # key=len will order the list by string length
     assert sorted(sentence, key=len) == ['I', 'a', 'am', 'Making', 'Sentence']
+
+def test_slicing_list():
+    """ Slicing lists using [start:stop:step]
+
+    The full syntax for slicing a list is myList[start:stop:step]. 
+        - "start" index is included, 
+        - "stop" index is not included,
+        - "step" determines how many values you skip or jump over (by default step=1)
+    """
+
+    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    assert numbers[0:6] == [0, 1, 2, 3, 4, 5]
+    assert numbers[0:6:2] == [0, 2, 4]
+
+    assert numbers[-3] == 7
+    assert numbers[-3:] == [7, 8, 9]
+
+    assert numbers[::2] == [0, 2, 4, 6, 8]
+    assert numbers[1::2] == [1, 3, 5, 7, 9]
+
+    assert numbers[::-1] == [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+    assert numbers[::-3] == [9, 6, 3, 0]
+
+    assert numbers[2:8:3] == [2, 5]
