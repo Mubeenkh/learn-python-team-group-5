@@ -369,6 +369,10 @@ def test_slicing_list():
         - "stop" index is not included,
         - "step" determines how many values you skip or jump over (by default step=1)
     """
+    words = ["Causing", "Merge", "Conflict"]
+
+    # slicing the first 4 letters in first string in a list of strings 
+    assert words[0][:4] == 'Caus'
 
     numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
